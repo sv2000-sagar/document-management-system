@@ -1,0 +1,34 @@
+version: '3'
+services:
+  auth_service:
+    # image: auth:0.0.1  # Use the local image 'auth:0.0.1'
+    image: sagarkool200032/auth_docs:latest  
+    container_name: auth_service
+    ports:
+      - "8000:8000"  # Map port 8000 on host to port 8000 in the container
+    environment:
+      # Add any environment variables if necessary
+      - ENV_VAR_NAME=value
+    # volumes:
+    #   - .:app
+
+  gendoc_service:
+    image: sagarkool200032/gendoc_docs:latest  
+    container_name: gendoc_service
+    ports:
+      - "5000:5000"  # Map port 5000 on host to port 5000 in the container
+    environment:
+      # Add any environment variables if necessary
+      - ENV_VAR_NAME=value
+    # volumes:
+    #   - .:app
+  frontend_service:
+    image: sagarkool200032/frontend_docs:latest 
+    container_name: frontend_service
+    ports:
+      - "3000:3000"  # Map port 3000 on host to port 3000 in the container
+    environment:
+      # Add any environment variables if necessary
+      - ENV_VAR_NAME=value
+    # volumes:
+    #   - .:app
